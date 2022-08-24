@@ -1,0 +1,67 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body class="bg-success">
+    <div id="layoutAuthentication">
+        <div id="layoutAuthentication_content">
+            <main>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-5">
+                            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                <div class="card-header"><h3 class="text-center font-weight-d my-lg-0">Iniciar sesión</h3></div>
+                                <div class="card-body">
+                                    <form action="@Url.Content("~/Login/Index")" method="post">
+                                        @Html.AntiForgeryToken()
+                                        <div class="form-floating mb-lg-4">
+                                            <input class="form-control" id="inputEmail" name="NCorreo" type="email" placeholder="name@example.com" @**@ value="admin@example.com" />
+                                            <label for="inputEmail">Email</label>
+                                        </div>
+                                        <div class="form-floating mb-lg-4">
+                                            <input class="form-control" id="inputPassword" name="NContrasena" type="password" placeholder="Contraseña" @**@ autocomplete="off" value="admin123" />
+                                            <label for="inputPassword">Password</label>
+                                        </div>
+                                        <div class="form-floating mb-lg-4">
+                                            @{if (ViewBag.Error != null)
+                                                {
+                                                    <div class="alert alert-danger" role="alert">
+                                                        @ViewBag.Error
+                                                    </div>
+                                                }
+                                            }
+                                        </div>
+                                        <div class="d-grid gap-2 col-6 mx-auto">
+                                            <button class="btn btn-primary"  type="submit">Ingresar</button>
+                                            <br>
+                                            <br/>
+
+                                    </form>
+                                    
+                                </div>
+                                
+                                <div class="card-footer text-center py-3">
+                                    <div class="small"><a id="publicidad_cuenta" href="@Url.Action("Registrarse","Login")">Necesitas registrarte?</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+   
+    <script>
+        
+    </script>
+</body>
+</html>
